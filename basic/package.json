@@ -1,0 +1,21 @@
+{
+    "name": "basic",
+    "version": "1.0.0",
+    "description": "basic password login",
+    "main": "app.js",
+    "scripts": {
+        "start": "node app",
+        "dev": "nodemon app",
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "author": "nilanjan deb",
+    "license": "ISC",
+    "dependencies": {
+        "bcrypt": "^4.0.1",
+        "express": "^4.17.1",
+        "mongoose": "^5.9.14"
+    },
+    "devDependencies": {
+        "nodemon": "^2.0.4"
+    }
+}
