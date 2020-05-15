@@ -1,0 +1,24 @@
+<h1>Login</h1>
+<% if (e) { %>
+    <p>
+        <%= e%>
+    </p>
+    <% } %>
+        <% if (s_msg) { %>
+            <p>
+                <%= s_msg%>
+            </p>
+            <% } %>
+                <% if (e_msg) { %>
+                    <p>
+                        <%= e_msg%>
+                    </p>
+                    <% } %>
+                        <form action="/login" method="POST">
+                            <label for="name">Email</label>
+                            <input required type="email" name="email">
+                            <label for="password">Password</label>
+                            <input required type="password" name="password">
+                            <button type="submit">Submit</button>
+                        </form>
+                        <a href="/register">Register</a>
