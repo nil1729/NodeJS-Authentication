@@ -1,11 +1,12 @@
 <h1>Register</h1>
-<form action="/register" method="POST">
-    <label for="name">Name</label>
-    <input required type="text" name="name" value="<%= typeof newUser != 'undefined' ? newUser.name : '' %>">
-    <label for="name">Email</label>
-    <input required type="email" name="email" value="<%= typeof newUser != 'undefined' ? newUser.email : '' %>">
-    <label for="password">Password</label>
-    <input required type="password" name="password" value="<%= typeof newUser != 'undefined' ? newUser.password : '' %>">
-    <button type="submit">Submit</button>
-</form>
-<a href="/login">Login</a>
+<%- include ('./_msg.ejs') %>
+    <form action="/users/register" method="POST">
+        <label for="name">Name</label>
+        <input required type="text" name="name" value="<%= typeof newUser != 'undefined' ? newUser.name : '' %>">
+        <label for="name">Email</label>
+        <input required type="email" name="email" value="<%= typeof newUser != 'undefined' ? newUser.email : '' %>">
+        <label for="password">Password</label>
+        <input required type="password" name="password" value="<%= typeof newUser != 'undefined' ? newUser.password : '' %>">
+        <button type="submit">Submit</button>
+    </form>
+    <a href="/users/login">Login</a>

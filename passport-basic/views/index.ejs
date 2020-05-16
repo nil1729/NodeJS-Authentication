@@ -1,14 +1,13 @@
-<h1>Hello
-    <%= name  %>
-</h1>
+<div class="container">
+    <div class="jumbotron">
+        <h1 class="display-4">Dashboard</h1>
+    </div>
+</div>
+<%- include ('./_msg.ejs') %>
+
+    <h1>Hello
+        <%= name  %>
+    </h1>
 
 
-<h2>Flash</h2>
-<% if(success_messages){ %>
-    <%= success_messages %>
-        <% } %>
-            <% if(s_msg){ %>
-                <%= s_msg %>
-                    <% } %>
-
-                        <a href="/logout">LOGOUT</a>
+    <a href="/users/logout">LOGOUT</a>

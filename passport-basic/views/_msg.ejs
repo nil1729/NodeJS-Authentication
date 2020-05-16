@@ -1,0 +1,25 @@
+<% if(typeof errors != 'undefined'){ %>
+    <%  errors.forEach(error => { %>
+        <p>
+            <%= error.msg %>
+        </p>
+        <% }) %>
+            <% } %>
+                <% if(s){ %>
+                    <%= s %>
+                        <% } %>
+                            <% if (e) { %>
+                                <p>
+                                    <%= e%>
+                                </p>
+                                <% } %>
+                                    <% if (s_msg) { %>
+                                        <p>
+                                            <%= s_msg%>
+                                        </p>
+                                        <% } %>
+                                            <% if (e_msg) { %>
+                                                <p>
+                                                    <%= e_msg%>
+                                                </p>
+                                                <% } %>
