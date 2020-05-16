@@ -9,7 +9,7 @@ const mongoURI = require('./config/keys').mongoURI;
 const connectDB = require('./config/db');
 const checkAuthentication = require('./middleware/auth');
 
-// Db Connection
+// DB Connection
 connectDB(mongoURI);
 
 // View Engine Setup

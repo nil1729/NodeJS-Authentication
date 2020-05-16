@@ -7,7 +7,7 @@ const app = express();
 
 const connectDb = async() => {
     try {
-        await mongoose.connect('mongodb://localhost/auths', {
+        await mongoose.connect('mongodb://localhost/auths-basic', {
             useNewUrlParser: true,
             useUnifiedTopology: true
         });
@@ -32,13 +32,14 @@ const userSchema = new mongoose.Schema({
 
 const User = mongoose.model("User", userSchema);
 
-app.use(express.json());
+app.use(express.json()); // Use For post via http
 app.get('/users', async(req, res) => {
     const users = await User.find();
     res.json(users);
 });
 
 app.post('/users', async(req, res) => {
+    console.log(req.body);
     try {
         const hashedPassword = await bcrypt.hash(req.body.password, 10);
         let user = new User({

@@ -1,0 +1,32 @@
+<%- include ('./partials/_header.ejs') %>
+    <title>Welcome</title>
+    </head>
+
+    <body>
+        <div class="jumbotron jumbotron-fluid">
+            <div class="container container-fluid text-center">
+                <h1 class="display-4">Welcome</h1>
+                <hr class="my-2">
+                <p class="lead">
+                    This is a Simple Node JS Authentication System
+                </p>
+            </div>
+            <div class="container text-center">
+                <div class="row">
+                    <div class="col-md-6">
+                        <a class="btn btn-primary col my-2" href="/users/register">Create an Accout</a>
+                    </div>
+                    <div class="col-md-6">
+                        <a class="btn btn-primary col my-2" href="/users/login">
+                            Login Here
+                         </a>
+                    </div>
+                </div>
+            </div>
+            <div class="container text-center mt-3">
+                <a href="/dashboard" class="btn btn-success">Go To Dashboard</a>
+            </div>
+        </div>
+
+
+        <%- include ('./partials/_footer.ejs') %>
