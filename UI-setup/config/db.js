@@ -7,6 +7,7 @@ module.exports = async(key) => {
         });
         console.log('MongoDB connected ......');
     } catch (e) {
+        console.log(e);
         console.log('Refused to connect');
     }
 };

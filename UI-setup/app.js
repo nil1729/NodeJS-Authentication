@@ -2,11 +2,10 @@ require('dotenv').config();
 
 const express = require('express');
 const app = express();
-const key = require('./config/keys').mongoURI;
+const key = require('./config/keys').MongoURI;
 const passport = require('passport');
 const flash = require('connect-flash');
 const session = require('express-session');
-
 
 // Database Connect
 require('./config/db')(key);
