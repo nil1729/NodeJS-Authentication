@@ -1,6 +1,6 @@
 ### Learning about NodeJS Authentication
 
-#### This is very important for Backend Developers. It is all about security, how we can secure a website from a hacker.
+#### This is very important for Backend Developers. It is all about security, how we can secure a website.
 
 ----
 * 1st Step [(Basic Login System, how it works)](https://github.com/nil1729/NodeJS-Authentication/tree/master/login-basic).
