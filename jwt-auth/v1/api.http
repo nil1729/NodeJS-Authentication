@@ -1,0 +1,11 @@
+GET http://localhost:4000/api
+
+###
+POST /api/posts HTTP/1.1
+Host: localhost:4000
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoxLCJ1c2VybmFtZSI6Im5pbGFuamFuIiwiZW1haWwiOiJuaWxAZ21haWwuY29tIn0sImlhdCI6MTU5MDA3NjA0NCwiZXhwIjoxNTkwMDc2MDc0fQ.OqbHRvfj1HsXyBChS3bxMFNeuB7r8-ytvDIi-cFZdxc
+
+
+
+###
+POST  http://localhost:4000/api/login

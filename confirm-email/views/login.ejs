@@ -1,0 +1,27 @@
+<% if(error !== ''){ %>
+    <p style="color: red;"><%= error  %> </p>
+    <p class="resend-form"></p>
+    <script>
+        const msg = `<%= error %>`;
+        if(msg === 'Email Verification Token Expired' || msg === 'Email not Registered'){
+            document.querySelector('.resend-form').innerHTML = `
+            <form action="/verify/resend" method="POST">
+                <label>Type Your Email</label>
+                <input type="email" name="email" required>
+                <button type="submit">Resend Verification Link</button>
+            </form>
+            `;
+        }
+    </script>
+<% } %> 
+<% if(success !== ''){ %>
+    <p style="color: green; font-size: 1.3em;"><%= success  %> </p>
+<% } %> 
+ <form action="/login" method="POST">
+    <label>Email</label>
+    <input type="email" name="email" required>
+    <label>Password</label>
+    <input type="password" name="password" required>
+    <button type="submit">Login</button>
+</form>
+<a href="/register">Register here</a>
