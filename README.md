@@ -9,6 +9,6 @@
 * 4th Step [(JWT Authentication and how it works)](https://github.com/nil1729/NodeJS-Authentication/tree/master/jwt-auth).
 * 5th Step [(Passport Authentication using `Google oAuth`)](https://github.com/nil1729/NodeJS-Authentication/tree/master/passport-oauth-google).
 * 6th Step [(Passport Authentication by Email Confirmation using `nodemailer` and `passport-local` Strategy)](https://github.com/nil1729/NodeJS-Authentication/tree/master/confirm-email).
-
+* 7th Step [(Email Verifiaction via OTP using `speakeasy` module and JWT)](https://github.com/nil1729/NodeJS-Authentication/tree/master/otp-speakeasy).
 ---
 #### Made with :heart: by [Nilanjan Deb](https://github.com/nil1729).
