@@ -1,0 +1,5 @@
+<form action="/totp/verify/<%= secret %>" method="POST">
+    <label for="token">Token</label>
+    <input type="text" name="token">
+    <button type="submit">Verify</button>
+</form>
