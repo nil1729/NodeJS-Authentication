@@ -7,16 +7,18 @@ const jwt = require('jsonwebtoken');
 const session = require('express-session');
 const flash = require('connect-flash');
 
-
+// View Engine Setup
 app.set('view engine', 'ejs');
 app.use(express.urlencoded({extended: true}));
 
+// Session for Flash Messages
 app.use(session({
     secret: 'nilanjan',
     resave: true,
     saveUninitialized: true
 }));
 
+// Flash Setup
 app.use(flash());
 app.use((req, res, next)=> {
     res.locals.success = req.flash('success');
@@ -24,6 +26,12 @@ app.use((req, res, next)=> {
     next();
 });
 
+// Index Route
+app.get('/', (req, res)=> {
+    res.render('index');
+});
+
+// POST request to generate OTP
 app.post('/totp/secret', (req, res) => {
     const secret = Speakeasy.generateSecret({length: 20});
     const token = Speakeasy.totp({
@@ -36,11 +44,12 @@ app.post('/totp/secret', (req, res) => {
         secret: secret.base32
     };
     const html = `<h1>${token}</h1>`;
+    // JWT For extra layer for Security
     jwt.sign(payload, 'nilanjan', {expiresIn: '60000'}, async(err, jwtToken)=> {
         if(err){
             return res.redirect('/');
         }
-            // Mail options
+            // OTP sending via Email
             let transporter = nodemailer.createTransport({
                 service: 'gmail',
                 auth: {
@@ -58,8 +67,8 @@ app.post('/totp/secret', (req, res) => {
             };
             try{
                 await transporter.sendMail(mailOptions);
-                // console.log(info);
                 req.flash('success', 'OTP sent to your email');
+                // Redirect to verification Page
                 res.redirect(`/${jwtToken}/verify`);
             }catch(e){
                 req.flash('error', 'Server Error');
@@ -69,10 +78,12 @@ app.post('/totp/secret', (req, res) => {
 });
 
 
+// Verification Page (GET)
 app.get('/:jwtToken/verify', (req, res) => {
     res.render('verify', {secret: req.params.jwtToken});
 });
 
+// Verify The OTP
 app.post('/totp/verify/:jwtToken', (req, res) => {
     jwt.verify(req.params.jwtToken, 'nilanjan', (err, decoded)=> {
         if(err){
@@ -86,6 +97,7 @@ app.post('/totp/verify/:jwtToken', (req, res) => {
             window: 1
         });
         if(tokenValidates){
+            // Here goes the further steps for Registering the User details
              return res.json({
                  msg: 'Success'
              });
@@ -95,12 +107,7 @@ app.post('/totp/verify/:jwtToken', (req, res) => {
     });
 });
 
-
+// Server PORT
 app.listen(PORT, () => {
     console.log(`Server started on port ${PORT}`);
-});
-
-// ======== Create Full Functional Server ========= //
-app.get('/', (req, res)=> {
-    res.render('index');
 });
