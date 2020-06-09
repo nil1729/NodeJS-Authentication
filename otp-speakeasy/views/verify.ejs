@@ -1,5 +1,11 @@
+<% if(error != ''){ %>
+    <h4 style="color: red;"><%= error %></h4>
+<% } %>
+<% if(success != ''){ %>
+    <h4 style="color: green;"><%= success %>  </h4>
+<% } %>   
 <form action="/totp/verify/<%= secret %>" method="POST">
     <label for="token">Token</label>
-    <input type="text" name="token">
+    <input required type="text" name="token">
     <button type="submit">Verify</button>
 </form>

@@ -1,0 +1,11 @@
+<% if(error != ''){ %>
+    <h4 style="color: red;"><%= error %></h4>
+<% } %>
+<% if(success != ''){ %>
+    <h4 style="color: green;"><%= success %>  </h4>
+<% } %>
+<form action="/totp/secret" method="POST">
+    <label for="email">Email Address</label>
+    <input required type="email" name="email">
+    <button type="submit">Register</button>
+</form>
