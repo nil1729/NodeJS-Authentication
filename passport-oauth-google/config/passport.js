@@ -18,11 +18,10 @@ module.exports = (passport) => {
                 email: profile.emails[0].value
             };
             try{
-                let user = await User.findOne({googleID: newUser.googleID});
+                let user = await User.findOne({email: newUser.email});
                 if(!user){
-                    user = new User(newUser);
-                    await user.save();
-                    return done(null, user);
+                    return done(null, user);  // Sign in By Google 
+                    // return done(null, false); // Only Authorized Google Users
                 }else{
                     return done(null, user);
                 }
